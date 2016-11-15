@@ -28,8 +28,7 @@
 		<property name="password" value="root" />
 	</bean>
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-      <property name="dataSource" ref="dataSource" />      
-
+      <property name="dataSource" ref="dataSource" />
       <property name="packagesToScan" value="com.kid.mum.domain" />
       <property name="hibernateProperties">
          <props>      
