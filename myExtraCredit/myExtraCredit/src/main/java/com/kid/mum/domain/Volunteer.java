@@ -6,21 +6,28 @@ import javax.persistence.Id;
 
 @Entity
 public class Volunteer {
-	@Id @GeneratedValue
-	int id;
-	String somenthing;
-	public int getId() {
-		return id;
+	@Id
+	@GeneratedValue
+	private int idV;
+	private String name;
+	private String skill;
+	public int getidV() {
+		return idV;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setidV(int idV) {
+		this.idV = idV;
 	}
-	public String getSomenthing() {
-		return somenthing;
+	public String getName() {
+		return name;
 	}
-	public void setSomenthing(String somenthing) {
-		this.somenthing = somenthing;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
+	public String getSkill() {
+		return skill;
+	}
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
 
 }
