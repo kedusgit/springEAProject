@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -42,6 +43,30 @@ public class ProjectController {
 		return "home";
 	}
 	
+	
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String getAddNewprojectForm(@ModelAttribute("newproject") Project newproject, Model model) {
+		List<Project> projects = (List<Project>) projectService.findAll();
+		model.addAttribute("projects", projects);
+		return "Addproject";
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String processAddNewprojectForm(@ModelAttribute("newproject") @Valid Project projectToBeAdded,
+			BindingResult result, HttpServletRequest request) {
+		if (result.hasErrors()) {
+			
+			return "addproject";
+		}
+
+		try {
+			projectService.addproject(projectToBeAdded);
+		} catch (Exception up) {
+			
+		}
+
+		return "redirect:/projects";
+	}
 
 	@RequestMapping(value = "/editProject", method = RequestMethod.GET)
 	public String editProjectGet(@Valid @ModelAttribute("project") Project project, BindingResult result,

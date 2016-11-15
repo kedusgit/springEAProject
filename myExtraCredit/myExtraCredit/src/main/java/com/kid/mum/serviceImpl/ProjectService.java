@@ -1,5 +1,7 @@
 package com.kid.mum.serviceImpl;
 
+import java.util.List;
+
 import com.kid.mum.Service.Interface.ProjectServiceInterface;
 import com.kid.mum.domain.Project;
 
@@ -86,4 +88,10 @@ public class ProjectService implements  ProjectServiceInterface {
 		
 	}
 
+	public void addproject(Project projectToBeAdded) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
