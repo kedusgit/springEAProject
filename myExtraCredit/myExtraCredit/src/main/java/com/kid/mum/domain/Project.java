@@ -15,6 +15,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Project {
 	@Id
@@ -25,7 +29,9 @@ public class Project {
 	private String status;
 	private Date startDate;
 	private Date endDate;
-	
+	@JsonIgnore 
+	private MultipartFile projectImage;
+
 	private List<Beneficiary>ben;
 	public int getProjectId() {
 		return pId;
@@ -76,6 +82,10 @@ public class Project {
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="project")
 	public void setBeneficiaries(List<Beneficiary> beneficiaries) {
 		this.ben = beneficiaries;
+	}
+	public MultipartFile getProductImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
